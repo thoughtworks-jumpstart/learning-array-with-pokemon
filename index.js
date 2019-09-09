@@ -47,3 +47,28 @@ const markedPokemons3 = data.map(item => ({
 }));
 
 console.log(markedPokemons1[0]);
+
+// Lab2: Map
+// Using map, return an array of pokemon with id, name.english, name.japanese, and type
+/**
+ * {
+ *  id: 1,
+ *  name: {
+ *    english: "dinosaur"
+ *    japanese: "恐竜"
+ *  }
+ *  type: ['ground']
+ * }
+ */
+const pokemonsMap = data.map(item => {
+  return {
+    id: item.id,
+    name: {
+      english: item.name.english,
+      japanese: item.name.japanese,
+    },
+    type: [...item.type],
+  };
+});
+
+console.log(pokemonsMap);
