@@ -81,4 +81,15 @@ const pokemonsWithAttackHigherThan120 = data.filter(item => {
   return false;
 });
 
-console.log(pokemonsWithAttackHigherThan120);
+// console.log(pokemonsWithAttackHigherThan120);
+
+// lab3: Filter
+// 1. return all pokemons with name.english.length > 8
+const pokemonsWithLongName = data.filter(item => {
+  if (item.name.english.length > 8) {
+    return true;
+  }
+  return false;
+});
+
+console.log(pokemonsWithLongName.length); // 36
