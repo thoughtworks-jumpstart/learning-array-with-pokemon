@@ -10,21 +10,21 @@ const loop1 = () => {
     console.log(data[i].name.english);
   }
 };
-loop1();
+// loop1();
 
 const loop2 = () => {
   for (let item of data) {
     console.log(item.name.english);
   }
 };
-loop2();
+// loop2();
 
 const loop3 = () => {
   data.forEach(item => {
     console.log(item.name.english);
   });
 };
-loop3();
+// loop3();
 
 // 2. Map
 const markedPokemons1 = data.map(item => {
@@ -46,7 +46,7 @@ const markedPokemons3 = data.map(item => ({
   name: item.name.english,
 }));
 
-console.log(markedPokemons1[0]);
+// console.log(markedPokemons1[0]);
 
 // Lab2: Map
 // Using map, return an array of pokemon with id, name.english, name.japanese, and type
@@ -71,4 +71,14 @@ const pokemonsMap = data.map(item => {
   };
 });
 
-console.log(pokemonsMap);
+// console.log(pokemonsMap);
+
+// Example for: Filter,
+const pokemonsWithAttackHigherThan120 = data.filter(item => {
+  if (item.base.Attack > 120) {
+    return true;
+  }
+  return false;
+});
+
+console.log(pokemonsWithAttackHigherThan120);
