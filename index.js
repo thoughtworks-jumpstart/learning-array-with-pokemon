@@ -92,4 +92,15 @@ const pokemonsWithLongName = data.filter(item => {
   return false;
 });
 
-console.log(pokemonsWithLongName.length); // 36
+// console.log(pokemonsWithLongName.length); // 36
+
+const types = ["rock", "ice", "electic"];
+// console.log(types.some(item => item === "flying"));
+
+const pokemonsWithTypeFire = data.filter(item => {
+  return !!(item.type.length === 1 && item.type.some(val => val === "Fire"));
+});
+
+console.log("pokemon with fire", pokemonsWithTypeFire);
+
+// lab4: return all pokemons that are type Psychic ONLY
