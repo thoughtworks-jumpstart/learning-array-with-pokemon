@@ -168,3 +168,28 @@ const sumAllWaterPokemonSpDef = data.reduce((acc, cur) => {
 }, 0);
 
 // console.log(sumAllWaterPokemonSpDef);
+
+const numbers2 = [123, 21, 30];
+const isAllNumGt20 = numbers2.every(num => num > 20);
+console.log(isAllNumGt20);
+
+const methodChainSpDef = data
+  .filter(pokemon => !!(pokemon.base.SpDefence > 120))
+  .map(pokemon => pokemon.name.english);
+console.log(methodChainSpDef);
+
+// using method chaining,
+//  give the total Attack of all normal type pokemons
+// filter type normal, reduce, add all attack,
+const SumOfNormalPokemonAttk = data
+  .filter(item => {
+    if (item.type.some(type => type === "Normal")) {
+      return true;
+    }
+    return false;
+  })
+  .reduce((acc, cur) => {
+    return acc + cur.base.Attack;
+  }, 0);
+
+console.log(SumOfNormalPokemonAttk);
