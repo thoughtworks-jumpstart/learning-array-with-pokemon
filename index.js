@@ -110,20 +110,17 @@ const psychicPokemons = data.filter(pokemon => {
   );
 });
 
-console.log("number of psychic type pokemons is ", psychicPokemons.length);
+// console.log("number of psychic type pokemons is ", psychicPokemons.length);
 
 // Reduce
 
 const numbers = [{}, 2, 3, 4, 5, 6, 7];
 let total = 0;
 numbers.forEach(number => (total = total + number));
-console.log("total", total);
 
 const totalNumber = numbers.reduce((acc, cur) => {
-  console.log(`acc is ${acc}, cur is ${cur}`);
   return acc + cur;
 }, 0);
-console.log("totalNumber", totalNumber);
 
 const sumAllSpAttackOfPsychicPokemon = psychicPokemons.reduce((acc, cur) => {
   return acc + cur.base.SpAttack;
@@ -139,9 +136,9 @@ const psychicPokemonNameAttack = psychicPokemons.reduce((acc, cur) => {
   return acc;
 }, {});
 
-console.log("sumAllSpAttackOfPsychicPokemon", sumAllSpAttackOfPsychicPokemon);
-console.log("nameOfPsychicPokemon", nameOfPsychicPokemon);
-console.log("combineAttackOfPsychicType", psychicPokemonNameAttack);
+// console.log("sumAllSpAttackOfPsychicPokemon", sumAllSpAttackOfPsychicPokemon);
+// console.log("nameOfPsychicPokemon", nameOfPsychicPokemon);
+// console.log("combineAttackOfPsychicType", psychicPokemonNameAttack);
 
 /**
  if (fulfil condition) {
@@ -152,4 +149,22 @@ console.log("combineAttackOfPsychicType", psychicPokemonNameAttack);
  */
 // Using reduce,
 // - give me all pokemon name with SpDefence higher than 120 in array;
-// -sum all SpDefence of the pokemons with water;
+// - sum all SpDefence of the water type pokemons
+const pokemonWithSpDefGt120 = data.reduce((acc, cur) => {
+  if (cur.base.SpDefence > 120) {
+    acc.push(cur.name.english);
+    return acc;
+  }
+  return acc;
+}, []);
+
+// console.log(pokemonWithSpDefGt120);
+
+const sumAllWaterPokemonSpDef = data.reduce((acc, cur) => {
+  if (cur.type.some(type => type === "Water")) {
+    return acc + cur.base.SpDefence;
+  }
+  return acc;
+}, 0);
+
+// console.log(sumAllWaterPokemonSpDef);
