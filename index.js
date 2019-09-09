@@ -97,10 +97,59 @@ const pokemonsWithLongName = data.filter(item => {
 const types = ["rock", "ice", "electic"];
 // console.log(types.some(item => item === "flying"));
 
-const pokemonsWithTypeFire = data.filter(item => {
+const firePokemons = data.filter(item => {
   return !!(item.type.length === 1 && item.type.some(val => val === "Fire"));
 });
 
-console.log("pokemon with fire", pokemonsWithTypeFire);
+// console.log("pokemon with fire", firePokemons);
 
 // lab4: return all pokemons that are type Psychic ONLY
+const psychicPokemons = data.filter(pokemon => {
+  return !!(
+    pokemon.type.length === 1 && pokemon.type.some(val => val === "Psychic")
+  );
+});
+
+console.log("number of psychic type pokemons is ", psychicPokemons.length);
+
+// Reduce
+
+const numbers = [{}, 2, 3, 4, 5, 6, 7];
+let total = 0;
+numbers.forEach(number => (total = total + number));
+console.log("total", total);
+
+const totalNumber = numbers.reduce((acc, cur) => {
+  console.log(`acc is ${acc}, cur is ${cur}`);
+  return acc + cur;
+}, 0);
+console.log("totalNumber", totalNumber);
+
+const sumAllSpAttackOfPsychicPokemon = psychicPokemons.reduce((acc, cur) => {
+  return acc + cur.base.SpAttack;
+}, 0);
+
+const nameOfPsychicPokemon = psychicPokemons.reduce((acc, cur) => {
+  acc.push(cur.name.english);
+  return acc;
+}, []);
+
+const psychicPokemonNameAttack = psychicPokemons.reduce((acc, cur) => {
+  acc[cur.name.english] = cur.base.SpAttack;
+  return acc;
+}, {});
+
+console.log("sumAllSpAttackOfPsychicPokemon", sumAllSpAttackOfPsychicPokemon);
+console.log("nameOfPsychicPokemon", nameOfPsychicPokemon);
+console.log("combineAttackOfPsychicType", psychicPokemonNameAttack);
+
+/**
+ if (fulfil condition) {
+    modify the acc,
+    return acc
+  }
+  return acc
+ */
+// Using reduce,
+// - give me all pokemon name with SpDefence higher than 120 in array;
+// -sum all SpDefence of the pokemons with water;
