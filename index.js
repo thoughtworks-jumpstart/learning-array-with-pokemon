@@ -208,14 +208,30 @@ newArray.push(1);
 newArray.push(2);
 newArray.unshift(0);
 newArray.unshift(-1);
-console.log(newArray);
+// console.log(newArray);
 
 let lastItemInArray;
 lastItemInArray = newArray.pop();
-console.log("last item in array:", lastItemInArray);
-console.log(newArray);
+// console.log("last item in array:", lastItemInArray);
+// console.log(newArray);
 
 let firstItemInArray;
 firstItemInArray = newArray.shift();
-console.log("first item in array:", firstItemInArray);
-console.log(newArray);
+// console.log("first item in array:", firstItemInArray);
+// console.log(newArray);
+
+// Destructuring Array
+const originalArray = [1, 2, 3, 4, {}];
+let [firstItem, secondItem, ...rest] = originalArray;
+console.log(firstItem);
+console.log(secondItem);
+console.log(rest);
+console.log(originalArray);
+console.log(originalArray === originalArray);
+const arrClone = [...originalArray];
+console.log(arrClone);
+console.log(arrClone === originalArray);
+arrClone[0] = 999;
+arrClone[arrClone.length - 1].name = "john smith";
+console.log("clone", arrClone);
+console.log("original", originalArray);
