@@ -171,12 +171,12 @@ const sumAllWaterPokemonSpDef = data.reduce((acc, cur) => {
 
 const numbers2 = [123, 21, 30];
 const isAllNumGt20 = numbers2.every(num => num > 20);
-console.log(isAllNumGt20);
+// console.log(isAllNumGt20);
 
 const methodChainSpDef = data
   .filter(pokemon => !!(pokemon.base.SpDefence > 120))
   .map(pokemon => pokemon.name.english);
-console.log(methodChainSpDef);
+// console.log(methodChainSpDef);
 
 // using method chaining,
 //  give the total Attack of all normal type pokemons
@@ -192,4 +192,30 @@ const SumOfNormalPokemonAttk = data
     return acc + cur.base.Attack;
   }, 0);
 
-console.log(SumOfNormalPokemonAttk);
+// console.log(SumOfNormalPokemonAttk);
+
+// 1. changes the original array
+// 2. you need to pass in a comparision function that returns a positive or negative number.
+const numbersToSort = [1, 100000, 99, 77, 44];
+const sortedNumberInAsc = [...numbersToSort].sort((a, b) => a - b);
+const sortedNumberInDesc = [...numbersToSort].sort((a, b) => b - a);
+// console.log(sortedNumberInAsc);
+// console.log(sortedNumberInDesc);
+
+// shift, unshift, pop, push
+const newArray = [];
+newArray.push(1);
+newArray.push(2);
+newArray.unshift(0);
+newArray.unshift(-1);
+console.log(newArray);
+
+let lastItemInArray;
+lastItemInArray = newArray.pop();
+console.log("last item in array:", lastItemInArray);
+console.log(newArray);
+
+let firstItemInArray;
+firstItemInArray = newArray.shift();
+console.log("first item in array:", firstItemInArray);
+console.log(newArray);
